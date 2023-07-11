@@ -7,9 +7,7 @@ function App() {
   const [suN, setSun] = useState(true);
 
   const getDataGempa = async () => {
-    const ResponseI = await fetch(
-      "https://data.bmkg.go.id/DataMKG/TEWS/gempaterkini.json"
-    );
+    const ResponseI = await fetch(import.meta.env.VITE_GEMPA_TERKINI);
     const DGempaI = await ResponseI.json();
     console.log(DGempaI?.Infogempa?.gempa);
     // setLoading(true);
@@ -17,6 +15,7 @@ function App() {
   };
   useEffect(() => {
     getDataGempa();
+    // getGMP();
     Sekarang();
   });
 
