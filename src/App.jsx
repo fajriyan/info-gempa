@@ -7,14 +7,16 @@ function App() {
   const [suN, setSun] = useState(true);
 
   const getDataGempa = async () => {
-    const ResponseI = await fetch(import.meta.env.VITE_GEMPA_TERKINI);
+    const ResponseI = await fetch(
+      "https://data-bmkg.vercel.app/gempa-dirasakan"
+    );
     const DGempaI = await ResponseI.json();
-    console.log(DGempaI?.Infogempa?.gempa);
+    console.log(DGempaI.data);
     // setLoading(true);
-    setGempa(DGempaI?.Infogempa?.gempa);
+    setGempa(DGempaI.data);
   };
   useEffect(() => {
-    getDataGempa();
+    // getDataGempa();
     // getGMP();
     Sekarang();
   });
@@ -138,12 +140,11 @@ function App() {
           </thead>
 
           <tbody className="divide-y divide-gray-200">
-            {dataGempa.map((dg) => (
+            {/* {dataGempa.map((dg) => (
               <>
                 <tr>
-                  {/* <td className="whitespace-nowrap ps-4 py-2 text-gray-800"></td> */}
                   <td className="whitespace-nowrap ps-4 py-2 text-gray-800">
-                    <span>{dg.Jam}</span> - {dg.Tanggal}
+                    <span>{dg}</span> - {dg}
                   </td>
                   <td className="whitespace-nowrap ps-4 py-2 font-medium text-gray-800 flex">
                     {dg.Magnitude}
@@ -187,7 +188,7 @@ function App() {
                   </td>
                 </tr>
               </>
-            ))}
+            ))} */}
           </tbody>
         </table>
       </div>
