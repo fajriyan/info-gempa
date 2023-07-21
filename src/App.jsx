@@ -8,7 +8,7 @@ function App() {
 
   const getDataGempa = async () => {
     const ResponseI = await fetch(
-      "https://data-bmkg.vercel.app/gempa-dirasakan"
+      "#hold"
     );
     const DGempaI = await ResponseI.json();
     console.log(DGempaI.data);
