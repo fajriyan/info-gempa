@@ -45,9 +45,9 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 ### About Me
 ![About Me](https://user-images.githubusercontent.com/56616688/218357651-1dcb0a85-eac0-4886-a4b5-0688866fcb3f.png)
 
-
-## Latest Issue
-- [x] 
 -->
+## Latest Issue
+- [ ] Rest API Error
+
 
 ### <a href="https://github.com/fajriyan/info-gempa/issues/new">📢Laporkan Masalah</a>
