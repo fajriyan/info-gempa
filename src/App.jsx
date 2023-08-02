@@ -7,19 +7,20 @@ function App() {
   const [suN, setSun] = useState(true);
 
   const getDataGempa = async () => {
-    const ResponseI = await fetch(
-      "#hold"
-    );
+    const ResponseI = await fetch(import.meta.env.VITE_GEMPA_TERKINI);
     const DGempaI = await ResponseI.json();
     console.log(DGempaI.data);
     // setLoading(true);
     setGempa(DGempaI.data);
   };
   useEffect(() => {
-    // getDataGempa();
-    // getGMP();
     Sekarang();
   });
+  useEffect(() => {
+    getDataGempa();
+    // getGMP();
+    // Sekarang();
+  }, []);
 
   function Sekarang() {
     let date = new Date();
@@ -140,6 +141,56 @@ function App() {
           </thead>
 
           <tbody className="divide-y divide-gray-200">
+            {dataGempa.map((dg) => (
+              <>
+                <tr>
+                  <td className="whitespace-nowrap ps-4 py-2 text-gray-800">
+                    <span>{dg.Tanggal}</span> - {dg.Jam}
+                  </td>
+                  <td className="whitespace-nowrap ps-4 py-2 font-medium text-gray-800 flex">
+                    {dg.Magnitude}
+                    {<Magnitudos mgFill={dg.Magnitude} />}
+                  </td>
+                  <td className="whitespace-nowrap ps-4 py-2 text-gray-800">
+                    {dg.Lintang} | {dg.Bujur}
+                  </td>
+                  <td className="whitespace-nowrap ps-4 py-2 text-gray-800 flex">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="13"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-arrow-down me-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
+                      />
+                    </svg>
+                    {dg.Kedalaman}
+                  </td>
+                  <td className="whitespace-nowrap ps-4 py-2 text-gray-800">
+                    {dg.Wilayah}
+                  </td>
+                  <td className="whitespace-nowrap py-2 text-gray-800 flex ">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="13"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-geo-alt me-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                      <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    </svg>
+                    {dg.Coordinates}
+                  </td>
+                </tr>
+              </>
+            ))}
+
             {/* {dataGempa.map((dg) => (
               <>
                 <tr>
