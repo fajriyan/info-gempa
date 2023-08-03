@@ -13,12 +13,10 @@ function App() {
     setGempa(DGempaI.data);
   };
   useEffect(() => {
-    Sekarang();
-  });
-  useEffect(() => {
     getDataGempa();
     // getGMP();
     // Sekarang();
+    Sekarang();
   }, []);
 
   function Sekarang() {
