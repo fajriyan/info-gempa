@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import Gempa from "./components/Gempa";
 
 function App() {
+  const [loading, setLoading] = useState(false);
   const [dataGempa, setGempa] = useState([]);
   const [dataWaktu, setWaktu] = useState([]);
   const [suN, setSun] = useState(true);
@@ -8,14 +10,12 @@ function App() {
   const getDataGempa = async () => {
     const ResponseI = await fetch(import.meta.env.VITE_GEMPA_TERKINI);
     const DGempaI = await ResponseI.json();
-    console.log(DGempaI.data);
-    // setLoading(true);
+    // console.log(dataGempa);
+    setLoading(true);
     setGempa(DGempaI.data);
   };
   useEffect(() => {
     getDataGempa();
-    // getGMP();
-    // Sekarang();
     Sekarang();
   }, []);
 
@@ -83,8 +83,11 @@ function App() {
 
   return (
     <div className="container px-3 py-7 lg:px-0 sm:mx-auto ">
-      <div className="py-3 flex justify-between">
-        <h1>Data Terkini BMKG</h1>
+      <h1>Informasi Data Gempa Bumi Terbaru </h1>
+
+      <Gempa />
+      <div className="py-3 mt-10 flex justify-between">
+        <h2>Data Terkini BMKG</h2>
         <span className="inline-flex items-center justify-center rounded-lg bg-sky-100 px-2.5 py-0.5 text-emerald-700">
           {suN ? (
             <svg
@@ -138,9 +141,9 @@ function App() {
           </thead>
 
           <tbody className="divide-y divide-gray-200">
-            {dataGempa.map((dg) => (
-              <>
-                <tr>
+            {loading ? (
+              dataGempa.map((dg) => (
+                <tr key={dg.DateTime + dg.Bujur + dg.Lintang}>
                   <td className="whitespace-nowrap ps-4 py-2 text-gray-800">
                     <span>{dg.Tanggal}</span> - {dg.Jam}
                   </td>
@@ -185,8 +188,10 @@ function App() {
                     {dg.Coordinates}
                   </td>
                 </tr>
-              </>
-            ))}
+              ))
+            ) : (
+              <div>Masih Loading Nih</div>
+            )}
 
             {/* {dataGempa.map((dg) => (
               <>
@@ -241,7 +246,7 @@ function App() {
         </table>
       </div>
       <p className="mt-3 text-sm font-sans text-gray-700">
-        Sumber : Data Gempa Terkini milik{" "}
+        Sumber : Data Gempa milik{" "}
         <span className="font-medium text-sky-700">BMKG</span>
       </p>
     </div>
