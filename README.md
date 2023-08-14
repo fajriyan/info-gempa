@@ -47,7 +47,8 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 
 -->
 ## Next Update
-- [ ] Update Highlight Gempa Terbaru
+- [x] Update Highlight Gempa Terbaru
+- [ ] Add skeleton loading
 
 ## Latest Issue
 - [x] Rest API Error
