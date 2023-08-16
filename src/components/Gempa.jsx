@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Magnitudo from "./Magnitudo";
 
 function Gempa() {
   const [loading, setLoading] = useState(false);
@@ -42,7 +43,9 @@ function Gempa() {
               </div>
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-6 sm:gap-4">
                 <dt className="font-medium text-gray-900">Magnitude</dt>
-                <dd className="text-gray-700 sm:col-span-2">{dGT.magnitude}</dd>
+                <dd className="text-gray-700 sm:col-span-2 flex ">
+                  {dGT.magnitude} <Magnitudo mgFill={dGT.Magnitude} />
+                </dd>
               </div>
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-6 sm:gap-4">
                 <dt className="font-medium text-gray-900">Kedalaman</dt>
@@ -63,46 +66,6 @@ function Gempa() {
               </div>
             </dl>
           </div>
-
-          {/* <div className="">
-            <div className="flex gap-3 mb-3 ">
-              <div className="flex gap-2">
-                <h2 className="text-md font-semibold">Tanggal :</h2>
-                <span className="whitespace-nowrap rounded-full bg-sky-100 px-2.5 py-0.5 text-sm  text-slate-800">
-                  04 Agu 2023
-                </span>
-              </div>
-              <div className="border"></div>
-              <div className="flex gap-2">
-                <h2 className="text-md font-semibold">Jam :</h2>
-                <span className="whitespace-nowrap rounded-full bg-sky-100 px-2.5 py-0.5 text-sm  text-slate-800">
-                  07:31:41 WIB
-                </span>
-              </div>
-            </div>
-            <div className="flex gap-3 border-t py-2 items-center">
-              <h2 className="text-md font-semibold">Koordinat</h2>
-              <h2 className="text-xl font-semibold font-sans">-6.32,113.14</h2>
-            </div>
-            <div className="flex gap-3 border-t py-2 items-center">
-              <h2 className="text-md font-semibold">Koordinat</h2>
-              <p className="text-md font-sans">
-                Pusat gempa berada di laut 83 km Timur Laut Bangkalan
-              </p>
-            </div>
-            <div className="flex gap-3 border-t py-2 items-center">
-              <h2 className="text-md font-semibold">potensi</h2>
-              <p className="text-md font-sans">
-                Gempa ini dirasakan untuk diteruskan pada masyarakat
-              </p>
-            </div>
-            <div className="flex gap-3 border-t py-2 items-center">
-              <h2 className="text-md font-semibold">dirasakan</h2>
-              <p className="text-md font-sans">
-                II Karangkates, II Denpasar, II Kuta, II Pacitan
-              </p>
-            </div>
-          </div> */}
         </div>
         <div className="h-[500px] rounded-lg border overflow-hidden flex">
           <a
