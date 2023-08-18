@@ -61,8 +61,9 @@ function App() {
                   </td>
                   <td className="whitespace-nowrap ps-4 py-2 font-medium text-gray-800 flex">
                     {dg.Magnitude}
+
+                    {/* {console.log(typeof dg.Magnitude)} */}
                     <Magnitudo mgFill={dg.Magnitude} />
-                    {/* {<Magnitudos mgFill={dg.Magnitude} />} */}
                   </td>
                   <td className="whitespace-nowrap ps-4 py-2 text-gray-800">
                     {dg.Lintang} | {dg.Bujur}

@@ -7,7 +7,6 @@ function Gempa() {
   const getGempaTerbaru = async () => {
     const ResponseGempa = await fetch(import.meta.env.VITE_GEMPA_TERBARU);
     const dataResponse = await ResponseGempa.json();
-    // console.log(dataResponse.data);
     setLoading(true);
     setdGT(dataResponse.data);
   };
@@ -44,7 +43,8 @@ function Gempa() {
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-6 sm:gap-4">
                 <dt className="font-medium text-gray-900">Magnitude</dt>
                 <dd className="text-gray-700 sm:col-span-2 flex ">
-                  {dGT.magnitude} <Magnitudo mgFill={dGT.Magnitude} />
+                  {dGT.magnitude}
+                  <Magnitudo mgFill={dGT.Magnitude} />
                 </dd>
               </div>
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-6 sm:gap-4">
@@ -81,9 +81,9 @@ function Gempa() {
               height="100%"
               className="object-contain"
             />
-            {/* <span className="absolute bottom-0 right-0 scale-0 rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
+            <span className="absolute bottom-0 right-0 scale-0 rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
               🗺 Open Image in new Tab
-            </span> */}
+            </span>
           </a>
         </div>
       </div>
