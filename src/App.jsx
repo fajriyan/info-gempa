@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import Gempa from "./components/Gempa";
 import Magnitudo from "./components/Magnitudo";
 import Time from "./components/Time";
+import Skeleton from "./components/Skeleton";
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [dataGempa, setGempa] = useState([]);
+  const skeletonloop = [1, 2, 3, 4, 5];
 
   const getDataGempa = async () => {
     const ResponseI = await fetch(import.meta.env.VITE_GEMPA_TERKINI);
@@ -101,7 +103,30 @@ function App() {
                 </tr>
               ))
             ) : (
-              <div>Masih Loading Nih</div>
+              <>
+                {skeletonloop.map(() => (
+                  <tr key={Math.random(20)}>
+                    <td className="ps-4 py-2 text-gray-800">
+                      <Skeleton />
+                    </td>
+                    <td className="ps-4 py-2 font-medium text-gray-800">
+                      <Skeleton />
+                    </td>
+                    <td className="ps-4 py-2 text-gray-800">
+                      <Skeleton />
+                    </td>
+                    <td className="ps-4 py-2 text-gray-800">
+                      <Skeleton />
+                    </td>
+                    <td className="ps-4 py-2 text-gray-800">
+                      <Skeleton />
+                    </td>
+                    <td className="py-2 text-gray-800 ">
+                      <Skeleton />
+                    </td>
+                  </tr>
+                ))}
+              </>
             )}
 
             {/* {dataGempa.map((dg) => (

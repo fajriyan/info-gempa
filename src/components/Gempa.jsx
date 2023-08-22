@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Magnitudo from "./Magnitudo";
+import Skeleton from "./Skeleton";
 
 function Gempa() {
   const [loading, setLoading] = useState(false);
@@ -22,47 +23,97 @@ function Gempa() {
             <dl className="-my-2 divide-y divide-gray-100 text-sm">
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-6 sm:gap-4">
                 <dt className="font-medium text-gray-900">Jam | Tanggal </dt>
-                <dd className="text-gray-700 sm:col-span-2">
-                  {dGT.jam} | {dGT.tanggal}
-                </dd>
+                {loading ? (
+                  <dd className="text-gray-700 sm:col-span-2">
+                    {dGT.jam} | {dGT.tanggal}
+                  </dd>
+                ) : (
+                  <dd className="text-gray-700 sm:col-span-2">
+                    <Skeleton />
+                  </dd>
+                )}
               </div>
 
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-6 sm:gap-4">
                 <dt className="font-medium text-gray-900">Koordinat </dt>
-                <dd className="text-gray-700 sm:col-span-2">
-                  {dGT.coordinates}
-                </dd>
+                {loading ? (
+                  <dd className="text-gray-700 sm:col-span-2">
+                    {dGT.coordinates}
+                  </dd>
+                ) : (
+                  <dd className="w-[75%]">
+                    <Skeleton />
+                  </dd>
+                )}
               </div>
 
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-6 sm:gap-4">
                 <dt className="font-medium text-gray-900"> Litang | Bujur</dt>
-                <dd className="text-gray-700 sm:col-span-2">
-                  {dGT.lintang} | {dGT.bujur}
-                </dd>
+                {loading ? (
+                  <dd className="text-gray-700 sm:col-span-2">
+                    {dGT.lintang} | {dGT.bujur}
+                  </dd>
+                ) : (
+                  <Skeleton />
+                )}
               </div>
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-6 sm:gap-4">
                 <dt className="font-medium text-gray-900">Magnitude</dt>
-                <dd className="text-gray-700 sm:col-span-2 flex ">
-                  {dGT.magnitude}
-                  <Magnitudo mgFill={dGT.Magnitude} />
-                </dd>
+                {loading ? (
+                  <dd className="text-gray-700 sm:col-span-2 flex ">
+                    {dGT.magnitude}
+                    <Magnitudo mgFill={dGT.Magnitude} />
+                  </dd>
+                ) : (
+                  <dd className="w-1/2">
+                    <Skeleton />
+                  </dd>
+                )}
               </div>
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-6 sm:gap-4">
                 <dt className="font-medium text-gray-900">Kedalaman</dt>
-                <dd className="text-gray-700 sm:col-span-2">{dGT.kedalaman}</dd>
+                {loading ? (
+                  <dd className="text-gray-700 sm:col-span-2">
+                    {dGT.kedalaman}
+                  </dd>
+                ) : (
+                  <dd className="w-1/3">
+                    <Skeleton />
+                  </dd>
+                )}
               </div>
 
               <div className="grid grid-cols-1 gap-1 px-3 py-2 sm:grid-cols-6 sm:gap-4">
                 <dt className="font-medium text-gray-900">Wilayah</dt>
-                <dd className="text-gray-700 sm:col-span-5">{dGT.wilayah}</dd>
+                {loading ? (
+                  <dd className="text-gray-700 sm:col-span-5">{dGT.wilayah}</dd>
+                ) : (
+                  <dd className="sm:col-span-3">
+                    <Skeleton />
+                  </dd>
+                )}
               </div>
               <div className="grid grid-cols-1 gap-1 px-3 py-2 sm:grid-cols-6 sm:gap-4">
                 <dt className="font-medium text-gray-900">Potensi</dt>
-                <dd className="text-gray-700 sm:col-span-5">{dGT.potensi}</dd>
+                {loading ? (
+                  <dd className="text-gray-700 sm:col-span-5">{dGT.potensi}</dd>
+                ) : (
+                  <dd className="sm:col-span-3 w-[70%]">
+                    <Skeleton />
+                  </dd>
+                )}
               </div>
               <div className="grid grid-cols-1 gap-1 px-3 py-2 sm:grid-cols-6 sm:gap-4">
                 <dt className="font-medium text-gray-900">Dirasakan</dt>
-                <dd className="text-gray-700 sm:col-span-5">{dGT.dirasakan}</dd>
+                {loading ? (
+                  <dd className="text-gray-700 sm:col-span-5">
+                    {dGT.dirasakan}
+                  </dd>
+                ) : (
+                  <dd className="sm:col-span-3 w-1/2">
+                    <Skeleton />
+                  </dd>
+                )}
               </div>
             </dl>
           </div>
@@ -74,13 +125,27 @@ function Gempa() {
             rel="noopener noreferrer"
             className="group relative"
           >
-            <img
-              src={"https://data.bmkg.go.id/DataMKG/TEWS/" + dGT.shakemap}
-              alt=""
-              width="100%"
-              height="100%"
-              className="object-contain"
-            />
+            {loading ? (
+              <div className="">
+                <img
+                  src={"https://data.bmkg.go.id/DataMKG/TEWS/" + dGT.shakemap}
+                  alt=""
+                  width="100%"
+                  height="100%"
+                  className="object-contain"
+                />
+              </div>
+            ) : (
+              <div>
+                <img
+                  src="https://data.bmkg.go.id/DataMKG/TEWS/20230821095548.mmi.jpg"
+                  alt=""
+                  width="100%"
+                  height="100%"
+                  className="object-contain blur-[3px]"
+                />
+              </div>
+            )}
             <span className="absolute bottom-0 right-0 scale-0 rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
               🗺 Open Image in new Tab
             </span>
