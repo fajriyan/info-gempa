@@ -13,7 +13,7 @@ function Gempa() {
   };
   useEffect(() => {
     getGempaTerbaru();
-  }, []);
+  });
 
   return (
     <div className="mt-3">
@@ -62,7 +62,7 @@ function Gempa() {
                 {loading ? (
                   <dd className="text-gray-700 sm:col-span-2 flex ">
                     {dGT.magnitude}
-                    <Magnitudo mgFill={dGT.Magnitude} />
+                    <Magnitudo mgFill={dGT.magnitude} />
                   </dd>
                 ) : (
                   <dd className="w-1/2">
