@@ -11,7 +11,7 @@ const Time = ({ csun = false }) => {
         let hh = date.getHours();
         let mm = date.getMinutes();
         let ss = date.getSeconds();
-        let dy = date.getUTCDate();
+        let dy = date.getDate();
         let mt = date.getMonth();
         let yy = date.getFullYear();
         // let ampm = "AM";
@@ -35,7 +35,7 @@ const Time = ({ csun = false }) => {
     });
 
     return (
-      <span className="inline-flex items-center justify-center rounded-lg bg-sky-100 px-2.5 py-0.5 text-emerald-700">
+      <span className="inline-flex items-center justify-center">
         {csun ? (
           fsun ? (
             <svg

@@ -39,6 +39,14 @@ function Gempa() {
                 {loading ? (
                   <dd className="text-gray-700 sm:col-span-2">
                     {dGT.coordinates}
+                    <a
+                      href={
+                        "https://www.google.com/maps/place/" + dGT.coordinates
+                      }
+                      className="ml-2 rounded bg-gray-800 px-2 py-[3px] text-xs text-white hover:bg-sky-900 "
+                    >
+                      lihat di Maps
+                    </a>
                   </dd>
                 ) : (
                   <dd className="w-[75%]">

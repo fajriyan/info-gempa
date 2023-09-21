@@ -22,7 +22,10 @@ const Home = () => {
   return (
     <div className="container px-3 py-7 lg:px-0 sm:mx-auto ">
       <h1 className="flex justify-between">
-        Informasi Data Gempa Bumi Terbaru <Time csun={true} />
+        Informasi Data Gempa Bumi Terbaru{" "}
+        <span className="rounded-lg border border-slate-200 px-2.5 py-0.5 text-emerald-700">
+          <Time csun={true} />
+        </span>
       </h1>
 
       <Gempa />
