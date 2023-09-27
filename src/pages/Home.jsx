@@ -6,14 +6,18 @@ import Skeleton from "../components/Skeleton";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
-  const [dataGempa, setGempa] = useState([]);
+  const [dataGempa, setGD] = useState([]);
+  const [dataGT, setGT] = useState([]);
   const skeletonloop = [1, 2, 3, 4, 5];
 
   const getDataGempa = async () => {
-    const ResponseI = await fetch(import.meta.env.VITE_GEMPA_TERKINI);
-    const DGempaI = await ResponseI.json();
+    const ResGD = await fetch(import.meta.env.VITE_GEMPA_DIRASAKAN);
+    const dGD = await ResGD.json();
+    const ResGT = await fetch(import.meta.env.VITE_GEMPA_TERKINI);
+    const dGT = await ResGT.json();
     setLoading(true);
-    setGempa(DGempaI.data);
+    setGD(dGD.data);
+    setGT(dGT.data);
   };
   useEffect(() => {
     getDataGempa();
@@ -29,8 +33,10 @@ const Home = () => {
       </h1>
 
       <Gempa />
+
+      {/* Start Gempa Yang Dirasakan  */}
       <div className="py-3 mt-10 flex gap-5">
-        <h2>Data Terkini BMKG</h2>
+        <h2 className="font-semibold">#Data 10 Gempa Yang Dirasakan</h2>
       </div>
       <div className="overflow-x-auto rounded-lg border border-gray-200">
         <table className="min-w-full divide-y divide-gray-200 bg-white text-sm">
@@ -144,6 +150,103 @@ const Home = () => {
           </tbody>
         </table>
       </div>
+      {/* End Gempa Yang Dirasakan  */}
+
+      {/* Start Gempa Terkini  */}
+      <div className="py-3 mt-10 flex gap-5">
+        <h2 className="font-semibold">#Data 10 Gempa Terkini</h2>
+      </div>
+      <div className="overflow-x-auto rounded-lg border border-gray-200">
+        <table className="min-w-full divide-y divide-gray-200 bg-white text-sm">
+          <thead className="text-left">
+            <tr>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Waktu Gempa
+              </th>
+              <th className="whitespace-nowrap px-3 py-2 font-medium text-gray-900">
+                Magnitudo
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Litang | Bujur
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Kedalaman
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Wilayah
+              </th>
+              <th className="whitespace-nowrap py-2 font-medium text-gray-900">
+                Potensi Gempa
+              </th>
+            </tr>
+          </thead>
+
+          <tbody className="divide-y divide-gray-200">
+            {loading ? (
+              dataGT.map((dg) => (
+                <tr className="group" key={dg.DateTime + dg.Bujur + dg.Lintang}>
+                  <td className="whitespace-nowrap ps-4 py-2 text-gray-800 group-hover:bg-slate-50">
+                    <span>{dg.Tanggal}</span> - {dg.Jam}
+                  </td>
+                  <td className="whitespace-nowrap ps-4 py-2 font-medium text-gray-800 flex group-hover:bg-slate-50">
+                    {dg.Magnitude}
+                    <Magnitudo mgFill={dg.Magnitude} />
+                  </td>
+                  <td className="whitespace-nowrap ps-4 py-2 text-gray-800 group-hover:bg-slate-50">
+                    {dg.Lintang} | {dg.Bujur}
+                  </td>
+                  <td className="whitespace-nowrap ps-4 py-2 text-gray-800 flex group-hover:bg-slate-50">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="13"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-arrow-down me-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M.039 3.314a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 3.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 6.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 9.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65z" />
+                    </svg>
+                    {dg.Kedalaman}
+                  </td>
+                  <td className="whitespace-nowrap ps-4 py-2 text-gray-800 group-hover:bg-slate-50">
+                    {dg.Wilayah}
+                  </td>
+                  <td className="whitespace-nowrap px-5 md:px-1 py-2 text-gray-800 flex relative">
+                    {dg.Potensi}
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <>
+                {skeletonloop.map(() => (
+                  <tr key={Math.random(20)}>
+                    <td className="ps-4 py-2 text-gray-800">
+                      <Skeleton />
+                    </td>
+                    <td className="ps-4 py-2 font-medium text-gray-800">
+                      <Skeleton />
+                    </td>
+                    <td className="ps-4 py-2 text-gray-800">
+                      <Skeleton />
+                    </td>
+                    <td className="ps-4 py-2 text-gray-800">
+                      <Skeleton />
+                    </td>
+                    <td className="ps-4 py-2 text-gray-800">
+                      <Skeleton />
+                    </td>
+                    <td className="py-2 text-gray-800 ">
+                      <Skeleton />
+                    </td>
+                  </tr>
+                ))}
+              </>
+            )}
+          </tbody>
+        </table>
+      </div>
+      {/* End Gempa Terkini  */}
+
       <p className="mt-3 text-sm font-sans text-gray-700">
         Sumber : Data Gempa milik{" "}
         <span className="font-medium text-sky-700">BMKG</span>

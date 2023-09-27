@@ -37,13 +37,13 @@ function Gempa() {
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-6 sm:gap-4">
                 <dt className="font-medium text-gray-900">Koordinat </dt>
                 {loading ? (
-                  <dd className="text-gray-700 sm:col-span-2">
+                  <dd className="text-gray-700 sm:col-span-2 group">
                     {dGT.coordinates}
                     <a
                       href={
                         "https://www.google.com/maps/place/" + dGT.coordinates
                       }
-                      className="ml-2 rounded bg-gray-800 px-2 py-[3px] text-xs text-white hover:bg-sky-900 "
+                      className="ml-2 rounded bg-gray-800 px-2 py-[3px] text-xs text-white invisible group-hover:visible"
                     >
                       lihat di Maps
                     </a>
