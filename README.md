@@ -54,7 +54,7 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 - [x] Add skeleton loading
 - [x] Add button for view coordinate to Maps
 - [ ] Fix Layout Mobile
-- [ ] Add new Data (Data Gempa Terkini)
+- [x] Add new Data (Data Gempa Terkini)
 
 ## Latest Issue
 - [x] Rest API Error
