@@ -55,6 +55,7 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 - [x] Add button for view coordinate to Maps
 - [ ] Fix Layout Mobile
 - [x] Add new Data (Data Gempa Terkini)
+- [ ] Create UI better 
 
 ## Latest Issue
 - [x] Rest API Error
