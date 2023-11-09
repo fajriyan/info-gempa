@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
-const Time = ({ csun = false }) => {
+const Time = ({ csun = false, showDate = false, showTime = false }) => {
   const [fTime, setTime] = useState();
+  const [isDate, setDate] = useState();
   const [fsun, setSun] = useState(true);
 
   try {
@@ -24,8 +25,10 @@ const Time = ({ csun = false }) => {
         mm = mm < 10 ? "0" + mm : mm;
         ss = ss < 10 ? "0" + ss : ss;
 
-        let time = hh + ":" + mm + ":" + ss + " | " + dy + "/" + mt + "/" + yy;
+        let time = hh + ":" + mm + ":" + ss;
+        let dates = dy + "/" + mt + "/" + yy;
         setTime(time);
+        setDate(dates);
         if (hh > 18) {
           setSun(false);
         } else {
@@ -60,7 +63,9 @@ const Time = ({ csun = false }) => {
             </svg>
           )
         ) : null}
-        {fTime}
+
+        {showDate && isDate}
+        {showTime && fTime}
       </span>
     );
   } catch (error) {
