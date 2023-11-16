@@ -49,13 +49,21 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 ![Annotation 2023-08-31 192831](https://github.com/fajriyan/info-gempa/assets/56616688/2130d640-286b-47ed-a01f-0fac326f663a)
 
 
+### Changelog Update
+- [1.1.0] - add some feature and fix bug
+- [1.1.2] - fix date UTC > Local, change style
+- [1.1.5] - add new data gempa terbaru
+- [1.1.7] - create experimental page /next
+- [1.1.9] - update ui and feature experimental /next 
+
+
 ## Next Update
 - [x] Update Highlight Gempa Terbaru
 - [x] Add skeleton loading
 - [x] Add button for view coordinate to Maps
 - [ ] Fix Layout Mobile
 - [x] Add new Data (Data Gempa Terkini)
-- [ ] Create UI better 
+- [x] Create UI better 
 
 ## Latest Issue
 - [x] Rest API Error
