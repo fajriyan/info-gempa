@@ -2,7 +2,7 @@ import Magnitudo from "../components/Magnitudo";
 import Time from "../components/Time";
 import useGT, { useGD } from "../features/fetch";
 
-const NextUpdate = () => {
+const Homepage = () => {
   const { data: GT, isLoading: loadGT } = useGT();
   const { data: GD, isLoading: loadGD } = useGD();
 
@@ -337,4 +337,4 @@ const NextUpdate = () => {
   );
 };
 
-export default NextUpdate;
+export default Homepage;

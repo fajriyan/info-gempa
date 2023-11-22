@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Gempa from "../components/Gempa";
-import Magnitudo from "../components/Magnitudo";
-import Time from "../components/Time";
-import Skeleton from "../components/Skeleton";
+import Gempa from "../../components/Gempa";
+import Magnitudo from "../../components/Magnitudo";
+import Time from "../../components/Time";
+import Skeleton from "../../components/Skeleton";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
