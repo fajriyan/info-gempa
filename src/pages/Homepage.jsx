@@ -46,18 +46,22 @@ const Homepage = () => {
   });
 
   const Skeleton = ({ width }) => {
-    if (loadGT || loadGD) {
-      return (
-        <div className="animate-pulse ">
-          <div
-            className={`mt-[5px] bg-violet-200 h-3 ${
-              width ? String(width) : "w-20"
-            }`}
-          ></div>
-        </div>
-      );
-    } else {
-      null;
+    try {
+      if (loadGT || loadGD) {
+        return (
+          <div className="animate-pulse ">
+            <div
+              className={`mt-[5px] bg-violet-200 h-3 ${
+                width ? String(width) : "w-20"
+              }`}
+            ></div>
+          </div>
+        );
+      } else {
+        null;
+      }
+    } catch (e) {
+      console.log("Error in Skeleton" + e);
     }
   };
 
@@ -73,7 +77,7 @@ const Homepage = () => {
         <div className="border-b sticky bg-white top-0 z-50">
           <div className="container h-[60px] mx-auto flex items-center justify-between px-3">
             <img
-              src="public/favicon.svg"
+              src="https://raw.githubusercontent.com/fajriyan/info-gempa/90f658ab8dcb69f7cc2ebd628ab8fb13d05b6a32/public/favicon.svg"
               className="w-9"
               alt="Logo"
               width={100}
@@ -207,10 +211,10 @@ const Homepage = () => {
                     <path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z" />
                   </svg>
                   <p className="mt-2 text-sm font-semibold">Lintang, Bujur</p>
-                  <p className="text-xs">
+                  <div className="text-xs">
                     <Skeleton />
                     {GT?.lintang} {GT?.bujur}
-                  </p>
+                  </div>
                 </div>
                 <div className="w-full my-2 md:hidden"></div>
                 <div className="w-[32%] md:w-[16%] flex items-center flex-col">
@@ -225,7 +229,7 @@ const Homepage = () => {
                     <path d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z" />
                   </svg>
                   <p className="mt-2 text-sm font-semibold">Magnitudo</p>
-                  <p className="text-xs flex">
+                  <div className="text-xs flex">
                     <Skeleton />
                     {GT?.magnitude}{" "}
                     {loadGT ? null : (
@@ -233,7 +237,7 @@ const Homepage = () => {
                         <Magnitudo mgFill={GT?.magnitude} />
                       </span>
                     )}
-                  </p>
+                  </div>
                 </div>
                 <div className="w-[32%] md:w-[16%] flex items-center flex-col">
                   <svg

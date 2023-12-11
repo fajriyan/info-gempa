@@ -22,7 +22,7 @@ const About = () => {
         <div className="flex flex-col md:flex-row gap-5 md:gap-10 px-3 md:px-0">
           <div className="w-24 md:w-52">
             <img
-              src="./public/favicon.svg"
+              src="https://raw.githubusercontent.com/fajriyan/info-gempa/90f658ab8dcb69f7cc2ebd628ab8fb13d05b6a32/public/favicon.svg"
               alt="Logo Gempa"
               width={100}
               height={100}
