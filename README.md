@@ -1,4 +1,4 @@
-# #4 Project Informasi Data Gempa 🏡
+# Project Informasi Data Gempa 🏡
 
 Project Informasi Data Gempa adalah sebuah project pribadi untuk menampilkan data Gempa di Indonesia dari Data Terbuka BMKG yang di forward dari Rest API dari project ```API Gempa```. Project ini diharapkan dapat membantu untuk yang membutuhkan informasi Gempa dengan cara mudah, Project ini dibangun menggunakan React JS (vite) dengan TailwindCSS yang dibuah simple dan mudah untuk dipahami, Terimakasih mohon bantuannya.
 
@@ -54,14 +54,18 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 - [1.1.2] - fix date UTC > Local, change style
 - [1.1.5] - add new data gempa terbaru
 - [1.1.7] - create experimental page /next
-- [1.1.9] - update ui and feature experimental /next 
+- [1.1.9] - update ui and feature experimental /next
+- [1.2.1] - apply experimental and improve SEO
+- [1.2.8] - create page about, add animation
+- [1.2.9] - fix DOM nesting and delete useless components
+
 
 
 ## Next Update
 - [x] Update Highlight Gempa Terbaru
 - [x] Add skeleton loading
 - [x] Add button for view coordinate to Maps
-- [ ] Fix Layout Mobile
+- [x] Fix Layout Mobile
 - [x] Add new Data (Data Gempa Terkini)
 - [x] Create UI better 
 
