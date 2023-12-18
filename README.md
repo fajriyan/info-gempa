@@ -58,6 +58,7 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 - [1.2.1] - apply experimental and improve SEO
 - [1.2.8] - create page about, add animation
 - [1.2.9] - fix DOM nesting and delete useless components
+- [1.3.0] - create new page `gempa dirasakan` and change navbar to components
 
 
 
