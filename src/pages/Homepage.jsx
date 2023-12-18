@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import Magnitudo from "../components/Magnitudo";
-import Time from "../components/Time";
 import useGT, { useGD } from "../features/fetch";
 import { motion } from "framer-motion";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
+import Navbar from "../components/Navbar";
 
 const Homepage = () => {
   const { data: GT, isLoading: loadGT } = useGT();
@@ -72,31 +72,7 @@ const Homepage = () => {
       transition={{ delay: 0.1 }}
     >
       <div className="selection:bg-violet-200 selection:text-black">
-        {/* Start - Navbar  */}
-
-        <div className="border-b sticky bg-white top-0 z-50">
-          <div className="container h-[60px] mx-auto flex items-center justify-between px-3">
-            <img
-              src="https://raw.githubusercontent.com/fajriyan/info-gempa/90f658ab8dcb69f7cc2ebd628ab8fb13d05b6a32/public/favicon.svg"
-              className="w-9"
-              alt="Logo"
-              width={100}
-              height={100}
-            />
-            <div
-              className="p-1 border-b flex flex-col items-center border-slate-300 w-[70px]"
-              id="time-is"
-            >
-              <p className="font-medium">
-                <Time showTime={true} />
-              </p>
-              <p className="text-xs -mt-[6px]">
-                <Time showDate={true} />
-              </p>
-            </div>
-          </div>
-        </div>
-        {/*  End - Navbar  */}
+        <Navbar />
 
         <div className="container mx-auto mt-3 mb-10 ">
           <h1 className="hidden">Aplikasi Data Gempa Bumi BMKG | Gempa</h1>
