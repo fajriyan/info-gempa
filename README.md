@@ -59,6 +59,7 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 - [1.2.8] - create page about, add animation
 - [1.2.9] - fix DOM nesting and delete useless components
 - [1.3.0] - create new page `gempa dirasakan` and change navbar to components
+- [1.3.1] - fix route sitemap and robots, fix ui 404 and error overflow
 
 
 
@@ -68,7 +69,8 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 - [x] Add button for view coordinate to Maps
 - [x] Fix Layout Mobile
 - [x] Add new Data (Data Gempa Terkini)
-- [x] Create UI better 
+- [x] Create UI better
+- [ ] Create Page Data Gempa Terkini
 
 ## Latest Issue
 - [x] Rest API Error
