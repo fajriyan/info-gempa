@@ -10,6 +10,8 @@ function App() {
       <Route path="/" element={<Homepage />} />
       <Route path="/tentang" element={<About />} />
       <Route path="/gempa-terkini" element={<GempaDirasakan />} />
+      <Route path="/robots.txt" Component={"../robots.txt"} />
+      <Route path="/sitemap.xml" Component={"../sitemap.xml"} />
       <Route path="*" Component={NotFound} />
     </Routes>
   );

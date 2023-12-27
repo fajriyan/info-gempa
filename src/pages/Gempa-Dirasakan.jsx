@@ -24,11 +24,9 @@ const GempaDirasakan = () => {
             masyarakat berdasarkan data BMKG Terbaru.
           </p>
 
-          
-
-          <div className="mt-2 md:mt-5 overflow-x-scroll md:overflow-visible">
+          <div className="mt-5 overflow-x-scroll md:overflow-visible border border-slate-200 ">
             <table className="min-w-full divide-y divide-gray-200 bg-white text-sm">
-              <thead className="text-left sticky top-[37px] bg-white border-b">
+              <thead className="text-left sticky bg-white border-b">
                 <tr>
                   <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                     No
