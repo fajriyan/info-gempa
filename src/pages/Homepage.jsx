@@ -99,7 +99,7 @@ const Homepage = () => {
                         alt=""
                         width="100%"
                         height="100%"
-                        className="object-contain h-[400px]"
+                        className="object-contain h-[400px] group-hover:scale-105 transition-all duration-700"
                         id="image-shakemap"
                       />
                     </div>

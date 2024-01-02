@@ -129,6 +129,17 @@ const GempaDirasakan = () => {
               </tbody>
             </table>
           </div>
+
+          <div className="mt-1 text-xs flex gap-1">
+            Keterangan :{" "}
+            <span className="flex gap-1">
+              <Magnitudo mgFill={5.0} /> Kurang Dari 5.0
+            </span>
+            |
+            <span className="flex gap-1">
+              <Magnitudo mgFill={5.1} /> Lebih dari 5.0
+            </span>
+          </div>
         </div>
       </motion.div>
     </>
