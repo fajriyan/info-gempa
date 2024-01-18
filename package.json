@@ -1,7 +1,6 @@
 {
-  "name": "adagempa",
-  "private": true,
-  "version": "1.3.5",
+  "name": "gempa",
+  "version": "1.3.9",
   "type": "module",
   "scripts": {
     "dev": "vite",

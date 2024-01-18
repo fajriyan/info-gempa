@@ -1,7 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Time from "./Time";
 
 const Navbar = () => {
+  const currentRoute = useLocation();
+  const mainMenu = [
+    { id: 1, title: "Gempa Dirasakan", url: "/gempa-dirasakan" },
+    { id: 2, title: "Gempa Terkini", url: "/gempa-terkini" },
+  ];
+
   return (
     <>
       {/* Start - Navbar  */}
@@ -18,9 +24,22 @@ const Navbar = () => {
             />
           </Link>
 
-          <Link to={"/gempa-terkini"} className="flex gap-1 items-center">
-            Gempa Dirasakan
-          </Link>
+          <div className="flex gap-5 items-center">
+            {mainMenu.map((m) => (
+              <NavLink
+                key={Math.random(9)}
+                to={m.url}
+                className={
+                  currentRoute.pathname === m.url
+                    ? "md:border-b-2 md:py-[18px] border-slate-600"
+                    : "text-slate-800 border-b-2 border-transparent hover:border-b-2 md:py-[18px] hover:border-slate-600"
+                }
+              >
+                {m.title}
+              </NavLink>
+            ))}
+          </div>
+
           <div className="p-1 flex flex-col items-center w-[70px]" id="time-is">
             <p className="font-medium">
               <Time showTime={true} />

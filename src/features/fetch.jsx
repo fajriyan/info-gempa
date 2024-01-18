@@ -14,6 +14,7 @@ const useGT = () => {
     isLoading,
   };
 };
+export default useGT;
 
 export const useGD = () => {
   const { data, isLoading } = useQuery({
@@ -28,5 +29,16 @@ export const useGD = () => {
     isLoading,
   };
 };
+export const useGTR = () => {
+  const { data, isLoading } = useQuery({
+    queryFn: async () => {
+      return (await instanse.get("/gempa-terkini")).data.data;
+    },
+    queryKey: ["fetch.GTR"],
+  });
 
-export default useGT;
+  return {
+    data,
+    isLoading,
+  };
+};
