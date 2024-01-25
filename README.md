@@ -38,15 +38,19 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 * Vite (React JS)
 * Tailwind CSS
 * HyperUI
+* Driver.js
 
 
 ## Screenshot
 
-### Section Hightlight Gempa Terbaru
-![Annotation 2023-08-31 192813](https://github.com/fajriyan/info-gempa/assets/56616688/06d3bcf1-fdf5-4ab2-a92e-87e767b514a8)
+### Page highlight gempa terbaru
+![Annotation 2024-01-25 095014](https://github.com/fajriyan/info-gempa/assets/56616688/26bff78f-adcd-4c49-b319-0a7ae6b61e19)
 
-### Section Data Gempa yang dirasakan
-![Annotation 2023-08-31 192831](https://github.com/fajriyan/info-gempa/assets/56616688/2130d640-286b-47ed-a01f-0fac326f663a)
+### Page gempa terkini
+![Annotation 2024-01-25 095127](https://github.com/fajriyan/info-gempa/assets/56616688/560b1c99-d6fe-4374-926b-19b74e837944)
+
+### Page gempa yang dirasakan
+![Annotation 2024-01-25 095036](https://github.com/fajriyan/info-gempa/assets/56616688/6850a247-3e01-4582-8085-8b10ee553c0b)
 
 
 ### Changelog Update
@@ -60,6 +64,8 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 - [1.2.9] - fix DOM nesting and delete useless components
 - [1.3.0] - create new page `gempa dirasakan` and change navbar to components
 - [1.3.1] - fix route sitemap and robots, fix ui 404 and error overflow
+- [1.3.5] - add information mg and change limit
+- [1.3.9] - create page gempa terkini
 
 
 
