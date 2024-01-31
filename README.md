@@ -76,10 +76,11 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 - [x] Fix Layout Mobile
 - [x] Add new Data (Data Gempa Terkini)
 - [x] Create UI better
-- [ ] Create Page Data Gempa Terkini
+- [X] Create Page Data Gempa Terkini
 
 ## Latest Issue
 - [x] Rest API Error
+- [ ] mobile view bad
 
 
 ### <a href="https://github.com/fajriyan/info-gempa/issues/new">📢Laporkan Masalah</a>
