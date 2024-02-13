@@ -77,11 +77,11 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 - [x] Add new Data (Data Gempa Terkini)
 - [x] Create UI better
 - [X] Create Page Data Gempa Terkini
-- [ ] Update Rest API with Key
+- [x] Update Rest API with Key
 
 ## Latest Issue
 - [x] Rest API Error
-- [ ] mobile view bad
+- [x] mobile view bad
 
 
 ### <a href="https://github.com/fajriyan/info-gempa/issues/new">📢Laporkan Masalah</a>
