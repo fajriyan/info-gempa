@@ -17,7 +17,12 @@ const Navbar = () => {
           <Link to={"/"}>
             <img
               src="https://raw.githubusercontent.com/fajriyan/info-gempa/90f658ab8dcb69f7cc2ebd628ab8fb13d05b6a32/public/favicon.svg"
-              className="w-9 hover:scale-110"
+              // className="w-9 hover:scale-110"
+              className={
+                currentRoute.pathname === "/"
+                  ? "w-9 hover:scale-110 border-b pb-1 border-purple-500"
+                  : "w-9 hover:scale-110"
+              }
               alt="Logo"
               width={100}
               height={100}
