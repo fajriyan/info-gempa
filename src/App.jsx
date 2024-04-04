@@ -4,6 +4,7 @@ import Homepage from "./pages/Homepage";
 import About from "./pages/About";
 import GempaDirasakan from "./pages/Gempa-Dirasakan";
 import GempaTerkini from "./pages/Gempa-Terkini";
+import Sandbox from "./pages/Sandbox";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/tentang" element={<About />} />
       <Route path="/gempa-dirasakan" element={<GempaDirasakan />} />
       <Route path="/gempa-terkini" element={<GempaTerkini />} />
+      <Route path="/sandbox" element={<Sandbox />} />
       <Route path="/robots.txt" Component={"../robots.txt"} />
       <Route path="/sitemap.xml" Component={"../sitemap.xml"} />
       <Route path="*" Component={NotFound} />
