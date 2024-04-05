@@ -2,6 +2,8 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import Time from "./Time";
 
 const Navbar = () => {
+  const online = navigator.onLine;
+
   const currentRoute = useLocation();
   const mainMenu = [
     { id: 1, title: "Gempa Dirasakan", url: "/gempa-dirasakan" },
@@ -46,6 +48,13 @@ const Navbar = () => {
           </div>
 
           <div className="p-1 flex flex-col items-center w-[70px]" id="time-is">
+            <div className="flex grow">
+              {online ? (
+                <span className="w-[10px] h-[10px] bg-green-600 rounded-full"></span>
+              ) : (
+                <span className="w-[10px] h-[10px] bg-red-600 rounded-full"></span>
+              )}
+            </div>
             <p className="font-medium">
               <Time showTime={true} />
             </p>

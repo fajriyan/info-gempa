@@ -2,6 +2,7 @@ import Magnitudo from "../components/Magnitudo";
 import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
 import { useGD } from "../features/fetch";
+import textProcessing from "../lib/textProcessing";
 
 const GempaDirasakan = () => {
   const { data: GD, isLoading: loadGD } = useGD();
@@ -93,8 +94,8 @@ const GempaDirasakan = () => {
                         </svg>
                         {GDM?.Kedalaman}
                       </td>
-                      <td className="whitespace-nowrap ps-4 py-2 text-gray-800 group-hover:bg-slate-50">
-                        {GDM?.Wilayah}
+                      <td className="whitespace-nowrap ps-4 py-2 text-gray-800 group-hover:bg-slate-50 capitalize">
+                        {textProcessing(GDM?.Wilayah)}
                       </td>
                       <td className="whitespace-nowrap px-5 md:px-1 py-2 text-gray-800 flex group-hover:bg-slate-50 hover:underline  relative">
                         <a

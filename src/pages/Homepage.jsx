@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 import Navbar from "../components/Navbar";
+import textProcessing from "../lib/textProcessing";
 
 const Homepage = () => {
   const { data: GT, isLoading: loadGT } = useGT();
@@ -64,23 +65,6 @@ const Homepage = () => {
       console.log("Error in Skeleton" + e);
     }
   };
-
-  var replacementSource = [
-    ["TimurLaut", "Timur Laut"],
-    ["BaratLaut", "Barat Laut"],
-  ];
-
-  function replaceText(originalText, replacements) {
-    replacements.forEach(function (replacement) {
-      var searchText = replacement[0];
-      var replacementText = replacement[1];
-      originalText = originalText?.replace(
-        new RegExp(searchText, "g"),
-        replacementText
-      );
-    });
-    return originalText;
-  }
 
   return (
     <motion.div
@@ -276,7 +260,7 @@ const Homepage = () => {
                   <li>
                     <span className="flex gap-1 capitalize">
                       Wilayah : <Skeleton width={"w-72"} />
-                      {replaceText(GT?.wilayah, replacementSource)}
+                      {textProcessing(GT?.wilayah)}
                     </span>
                   </li>
                   <li>
@@ -372,7 +356,7 @@ const Homepage = () => {
                             {GDM?.Kedalaman}
                           </td>
                           <td className="whitespace-nowrap ps-4 py-2 text-gray-800 group-hover:bg-slate-50 capitalize">
-                            {replaceText(GT?.wilayah, replacementSource)}
+                            {textProcessing(GT?.wilayah)}
                           </td>
                           <td className="whitespace-nowrap px-5 md:px-1 py-2 text-gray-800 flex group-hover:bg-slate-50 hover:underline  relative">
                             <a
