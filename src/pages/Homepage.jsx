@@ -72,20 +72,19 @@ const Homepage = () => {
       animate={{ x: 0 }}
       transition={{ delay: 0.1 }}
     >
-      <div className="selection:bg-violet-200 selection:text-black">
+      <div className="selection:bg-violet-200 selection:text-black h-screen dark:bg-gradient-to-r from-gray-800 via-gray-900 to-black">
         <Navbar />
-
-        <div className="container mx-auto mt-3 mb-10 ">
+        <div className="container mx-auto pt-3">
           <h1 className="hidden">Aplikasi Data Gempa Bumi BMKG | Gempa</h1>
           <div className="grid px-3 grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-3 ">
             {/* Start - Image Section  */}
             <div className="">
-              <div className="md:sticky md:top-[70px] p-1 rounded-lg border overflow-hidden flex justify-center">
+              <div className="md:sticky md:top-[70px] p-1 rounded-lg border overflow-hidden flex justify-center bg-white">
                 <a
                   href={"https://data.bmkg.go.id/DataMKG/TEWS/" + GT?.shakemap}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex-grow"
+                  className="group relative flex-grow "
                 >
                   {loadGT ? (
                     <div className="animate-pulse">
@@ -122,14 +121,14 @@ const Homepage = () => {
               >
                 <div className="mt-2 flex gap-3">
                   <button
-                    className=" bg-slate-900 w-full border border-slate-800 text-white font-medium py-2 rounded-md hover:bg-violet-900"
+                    className=" bg-slate-900 w-full border border-slate-800 text-white  font-medium py-2 rounded-md hover:bg-violet-900"
                     onClick={() => driverObj.drive()}
                   >
                     Mulai Website Tour
                   </button>
                   <Link
                     to={"/tentang"}
-                    className="border border-slate-800 w-full text-slate-900 font-medium py-2 rounded-md text-center hover:bg-violet-200 "
+                    className="border border-slate-800 w-full text-slate-900 dark:text-neutral-100 font-medium py-2 rounded-md text-center hover:bg-violet-200 "
                   >
                     Tentang Website
                   </Link>
@@ -141,7 +140,7 @@ const Homepage = () => {
             {/* Start - Information Section */}
             <div className="lg:col-span-2">
               <div
-                className="rounded-lg border p-3 flex flex-wrap items-center gap-[6px]"
+                className="rounded-lg border p-3 flex flex-wrap items-center gap-[6px] dark:text-neutral-100 dark:bg-gray-400/15 dark:backdrop-blur-md"
                 id="highligt"
               >
                 <div className="w-[32%] md:w-[16%] flex items-center flex-col">
@@ -216,7 +215,7 @@ const Homepage = () => {
                     )}
                   </div>
                 </div>
-                <div className="w-[32%] md:w-[16%] flex items-center flex-col">
+                <div className="w-[32%] md:w-[16%] flex items-center flex-col ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="30"
@@ -273,33 +272,33 @@ const Homepage = () => {
               </div>
 
               <div
-                className="mt-3 rounded-lg border p- overflow-x-scroll"
+                className="mt-3 rounded-lg border p- overflow-x-scroll  dark:bg-gray-400/15 dark:backdrop-blur-md"
                 id="table-feel"
               >
-                <div className="border-b px-3 py-2 sticky top-0 bg-white">
-                  <h2 className="font-semibold text-sm text-gray-900">
+                <div className="border-b px-3 py-2 sticky top-0 dark:text-neutral-100">
+                  <h2 className="font-semibold text-sm text-gray-900 dark:text-neutral-100">
                     #Data 3 Gempa Terbaru Yang Dirasakan
                   </h2>
                 </div>
-                <table className="min-w-full divide-y divide-gray-200 bg-white text-sm">
-                  <thead className="text-left sticky top-[37px] bg-white border-b">
+                <table className="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead className="text-left sticky top-[37px] border-b text-slate-900 dark:text-neutral-100">
                     <tr>
-                      <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                      <th className="whitespace-nowrap px-4 py-2 font-medium">
                         Waktu Gempa
                       </th>
-                      <th className="whitespace-nowrap px-3 py-2 font-medium text-gray-900">
+                      <th className="whitespace-nowrap px-3 py-2 font-medium">
                         Magnitudo
                       </th>
-                      <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                      <th className="whitespace-nowrap px-4 py-2 font-medium">
                         Litang | Bujur
                       </th>
-                      <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                      <th className="whitespace-nowrap px-4 py-2 font-medium">
                         Kedalaman
                       </th>
-                      <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                      <th className="whitespace-nowrap px-4 py-2 font-medium">
                         Wilayah
                       </th>
-                      <th className="whitespace-nowrap py-2 font-medium text-gray-900">
+                      <th className="whitespace-nowrap py-2 font-medium">
                         Koordinat
                       </th>
                     </tr>
@@ -329,20 +328,20 @@ const Homepage = () => {
                     ) : (
                       GD?.slice(0, 3).map((GDM) => (
                         <tr
-                          className="group"
+                          className="group text-slate-700 dark:text-neutral-100"
                           key={GDM?.DateTime + GDM?.Bujur + GDM?.Lintang}
                         >
-                          <td className="whitespace-nowrap ps-4 py-2 text-gray-800 group-hover:bg-slate-50">
+                          <td className="whitespace-nowrap ps-4 py-2  group-hover:bg-slate-50 dark:group-hover:bg-neutral-500">
                             <span>{GDM?.Tanggal}</span> - {GDM?.Jam}
                           </td>
-                          <td className="whitespace-nowrap ps-4 py-2 font-medium text-gray-800 flex group-hover:bg-slate-50">
+                          <td className="whitespace-nowrap ps-4 py-2 font-medium flex group-hover:bg-slate-50 dark:group-hover:bg-neutral-500">
                             {GDM?.Magnitude}
                             <Magnitudo mgFill={GDM?.Magnitude} />
                           </td>
-                          <td className="whitespace-nowrap ps-4 py-2 text-gray-800 group-hover:bg-slate-50">
+                          <td className="whitespace-nowrap ps-4 py-2  group-hover:bg-slate-50 dark:group-hover:bg-neutral-500">
                             {GDM?.Lintang} | {GDM?.Bujur}
                           </td>
-                          <td className="whitespace-nowrap ps-4 py-2 text-gray-800 flex group-hover:bg-slate-50">
+                          <td className="whitespace-nowrap ps-4 py-2  flex group-hover:bg-slate-50 dark:group-hover:bg-neutral-500">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="13"
@@ -355,10 +354,10 @@ const Homepage = () => {
                             </svg>
                             {GDM?.Kedalaman}
                           </td>
-                          <td className="whitespace-nowrap ps-4 py-2 text-gray-800 group-hover:bg-slate-50 capitalize">
+                          <td className="whitespace-nowrap ps-4 py-2  group-hover:bg-slate-50 dark:group-hover:bg-neutral-500 capitalize">
                             {textProcessing(GT?.wilayah)}
                           </td>
-                          <td className="whitespace-nowrap px-5 md:px-1 py-2 text-gray-800 flex group-hover:bg-slate-50 hover:underline  relative">
+                          <td className="whitespace-nowrap px-5 md:px-1 py-2  flex group-hover:bg-slate-50 dark:group-hover:bg-neutral-500 hover:underline  relative">
                             <a
                               href={
                                 "https://www.google.com/maps/place/" +
