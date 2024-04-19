@@ -31,7 +31,7 @@ const Navbar = () => {
     <>
       {/* Start - Navbar  */}
 
-      <div className="border-b sticky dark:bg-neutral-950 dark:text-white bg-white top-0 z-50">
+      <div className="border-b sticky dark:bg-neutral-950/50 dark:text-white bg-white top-0 z-50">
         <div className="container h-[60px] mx-auto flex items-center justify-between px-3">
           <Link to={"/"}>
             <img

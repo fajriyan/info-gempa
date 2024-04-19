@@ -72,9 +72,9 @@ const Homepage = () => {
       animate={{ x: 0 }}
       transition={{ delay: 0.1 }}
     >
-      <div className="selection:bg-violet-200 selection:text-black h-screen dark:bg-gradient-to-r from-gray-800 via-gray-900 to-black">
+      <div className="selection:bg-violet-200 selection:text-black min-h-screen dark:bg-gradient-to-r from-gray-800 via-gray-900 to-black pb-10">
         <Navbar />
-        <div className="container mx-auto pt-3">
+        <div className="container mx-auto pt-5">
           <h1 className="hidden">Aplikasi Data Gempa Bumi BMKG | Gempa</h1>
           <div className="grid px-3 grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-3 ">
             {/* Start - Image Section  */}
@@ -121,14 +121,14 @@ const Homepage = () => {
               >
                 <div className="mt-2 flex gap-3">
                   <button
-                    className=" bg-slate-900 w-full border border-slate-800 text-white  font-medium py-2 rounded-md hover:bg-violet-900"
+                    className=" bg-slate-900 w-full border border-slate-800 text-white  font-medium py-2 rounded-md hover:bg-violet-900 dark:bg-violet-800 dark:border-violet-800 dark:shadow-lg"
                     onClick={() => driverObj.drive()}
                   >
                     Mulai Website Tour
                   </button>
                   <Link
                     to={"/tentang"}
-                    className="border border-slate-800 w-full text-slate-900 dark:text-neutral-100 font-medium py-2 rounded-md text-center hover:bg-violet-200 "
+                    className="border border-slate-800 w-full text-slate-900 dark:text-neutral-100 font-medium py-2 rounded-md text-center hover:bg-violet-200 dark:bg-neutral-300/40 dark:shadow-lg dark:hover:bg-white dark:hover:text-slate-900"
                   >
                     Tentang Website
                   </Link>
@@ -166,6 +166,43 @@ const Homepage = () => {
                     width="30"
                     height="30"
                     fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                  </svg>
+                  <p className="mt-2 text-sm font-semibold">Waktu</p>
+                  <Skeleton />
+                  <p className="text-xs">{GT?.jam}</p>
+                </div>
+                <div className="w-[32%] md:w-[16%] flex items-center flex-col">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    fill="currentColor"
+                    className="bi bi-calendar2-event"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z" />
+                  </svg>
+                  <p className="mt-2 text-sm font-semibold">Magnitudo</p>
+                  <div className="text-xs flex">
+                    <Skeleton />
+                    {GT?.magnitude}{" "}
+                    {loadGT ? null : (
+                      <span className="animate-pulse">
+                        <Magnitudo mgFill={GT?.magnitude} />
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div className="w-[32%] md:w-[16%] flex items-center flex-col">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    fill="currentColor"
                     className="bi bi-calendar2-event"
                     viewBox="0 0 16 16"
                   >
@@ -193,28 +230,7 @@ const Homepage = () => {
                   </div>
                 </div>
                 <div className="w-full my-2 md:hidden"></div>
-                <div className="w-[32%] md:w-[16%] flex items-center flex-col">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="30"
-                    fill="currentColor"
-                    className="bi bi-calendar2-event"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z" />
-                  </svg>
-                  <p className="mt-2 text-sm font-semibold">Magnitudo</p>
-                  <div className="text-xs flex">
-                    <Skeleton />
-                    {GT?.magnitude}{" "}
-                    {loadGT ? null : (
-                      <span className="animate-pulse">
-                        <Magnitudo mgFill={GT?.magnitude} />
-                      </span>
-                    )}
-                  </div>
-                </div>
+
                 <div className="w-[32%] md:w-[16%] flex items-center flex-col ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -230,21 +246,7 @@ const Homepage = () => {
                   <Skeleton />
                   <p className="text-xs">{GT?.kedalaman}</p>
                 </div>
-                <div className="w-[32%] md:w-[16%] flex items-center flex-col">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="30"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
-                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
-                  </svg>
-                  <p className="mt-2 text-sm font-semibold">Waktu</p>
-                  <Skeleton />
-                  <p className="text-xs">{GT?.jam}</p>
-                </div>
+
                 <div className="w-full my-2">
                   <hr />
                 </div>
@@ -331,17 +333,17 @@ const Homepage = () => {
                           className="group text-slate-700 dark:text-neutral-100"
                           key={GDM?.DateTime + GDM?.Bujur + GDM?.Lintang}
                         >
-                          <td className="whitespace-nowrap ps-4 py-2  group-hover:bg-slate-50 dark:group-hover:bg-neutral-500">
+                          <td className="whitespace-nowrap ps-4 py-2  group-hover:bg-slate-50 dark:group-hover:bg-slate-200 dark:group-hover:text-slate-900 ">
                             <span>{GDM?.Tanggal}</span> - {GDM?.Jam}
                           </td>
-                          <td className="whitespace-nowrap ps-4 py-2 font-medium flex group-hover:bg-slate-50 dark:group-hover:bg-neutral-500">
+                          <td className="whitespace-nowrap ps-4 py-2 font-medium flex group-hover:bg-slate-50 dark:group-hover:bg-slate-200 dark:group-hover:text-slate-900 ">
                             {GDM?.Magnitude}
                             <Magnitudo mgFill={GDM?.Magnitude} />
                           </td>
-                          <td className="whitespace-nowrap ps-4 py-2  group-hover:bg-slate-50 dark:group-hover:bg-neutral-500">
+                          <td className="whitespace-nowrap ps-4 py-2  group-hover:bg-slate-50 dark:group-hover:bg-slate-200 dark:group-hover:text-slate-900 ">
                             {GDM?.Lintang} | {GDM?.Bujur}
                           </td>
-                          <td className="whitespace-nowrap ps-4 py-2  flex group-hover:bg-slate-50 dark:group-hover:bg-neutral-500">
+                          <td className="whitespace-nowrap ps-4 py-2  flex group-hover:bg-slate-50 dark:group-hover:bg-slate-200 dark:group-hover:text-slate-900 ">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="13"
@@ -354,10 +356,10 @@ const Homepage = () => {
                             </svg>
                             {GDM?.Kedalaman}
                           </td>
-                          <td className="whitespace-nowrap ps-4 py-2  group-hover:bg-slate-50 dark:group-hover:bg-neutral-500 capitalize">
+                          <td className="whitespace-nowrap ps-4 py-2  group-hover:bg-slate-50 dark:group-hover:bg-slate-200 dark:group-hover:text-slate-900  capitalize">
                             {textProcessing(GT?.wilayah)}
                           </td>
-                          <td className="whitespace-nowrap px-5 md:px-1 py-2  flex group-hover:bg-slate-50 dark:group-hover:bg-neutral-500 hover:underline  relative">
+                          <td className="whitespace-nowrap px-5 md:px-1 py-2  flex group-hover:bg-slate-50 dark:group-hover:bg-slate-200 dark:group-hover:text-slate-900  hover:underline  relative">
                             <a
                               href={
                                 "https://www.google.com/maps/place/" +
