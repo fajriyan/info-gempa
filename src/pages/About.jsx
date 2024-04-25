@@ -74,10 +74,7 @@ const About = () => {
 
           <div className="mt-7">
             <div className="space-y-4">
-              <details
-                className="group [&_summary::-webkit-details-marker]:hidden"
-                open
-              >
+              <details className="group [&_summary::-webkit-details-marker]:hidden border border-violet-900/50 dark:border-neutral-400 rounded-xl overflow-hidden">
                 <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-950 dark:bg-gray-300/80 dark:backdrop-blur-md">
                   <h2 className="font-medium">
                     Data Gempa yang digunakan berasal dari mana? Apakah valid?
@@ -94,7 +91,7 @@ const About = () => {
                   </svg>
                 </summary>
 
-                <p className="mt-4 px-4 leading-relaxed text-gray-700 dark:text-neutral-300">
+                <p className="py-4 px-4 leading-relaxed text-gray-700 dark:text-neutral-300">
                   Dapat dipastikan Valid! Karena data yang digunakan pada
                   website ini adalah Real Time sepenuhnya berasal dari BMKG
                   (Badan Meteorologi, Klimatologi, dan Geofisika), berikut
@@ -105,10 +102,7 @@ const About = () => {
                   untuk informasi lebih lengkap.
                 </p>
               </details>
-              <details
-                className="group [&_summary::-webkit-details-marker]:hidden"
-                open
-              >
+              <details className="group [&_summary::-webkit-details-marker]:hidden border border-violet-900/50 dark:border-neutral-400 rounded-xl overflow-hidden">
                 <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-950 dark:bg-gray-300/80 dark:backdrop-blur-md">
                   <h2 className="font-medium">
                     Apakah saya bisa meminta fitur tambahan?
@@ -125,7 +119,7 @@ const About = () => {
                   </svg>
                 </summary>
 
-                <p className="mt-4 px-4 leading-relaxed text-gray-700 dark:text-neutral-300">
+                <p className="py-4 px-4 leading-relaxed text-gray-700 dark:text-neutral-300">
                   Tentu saja boleh, kalian bisa melakukan Request untuk fitur
                   atau bug yang kalian temukan, silahkan lakukan{" "}
                   <a
@@ -138,7 +132,7 @@ const About = () => {
                 </p>
               </details>
 
-              <details className="group [&_summary::-webkit-details-marker]:hidden">
+              <details className="group [&_summary::-webkit-details-marker]:hidden border border-violet-900/50 dark:border-neutral-400 rounded-xl overflow-hidden">
                 <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-950 dark:bg-gray-300/80 dark:backdrop-blur-md">
                   <h2 className="font-medium">
                     Bagaimana jika saya ingin membuat aplikasi serupa?
@@ -155,7 +149,7 @@ const About = () => {
                   </svg>
                 </summary>
 
-                <p className="mt-4 px-4 leading-relaxed text-gray-700 dark:text-neutral-300">
+                <p className="py-4 px-4 leading-relaxed text-gray-700 dark:text-neutral-300">
                   Tentunya sangat diperbolehkan, saya akan segera merilis API
                   untuk mendapatkan data Gempa yang digunakan pada aplikasi ini,
                   nantikan untuk informasinya di situs ini.

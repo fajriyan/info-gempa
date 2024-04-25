@@ -1,6 +1,6 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Time from "./Time";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ThemeContext from "../lib/ThemeContext";
 
 const Navbar = () => {
@@ -14,14 +14,41 @@ const Navbar = () => {
   ];
 
   const [theme, setTheme] = useContext(ThemeContext);
+  let storageTheme = JSON.parse(localStorage.getItem("theme"));
 
-  const handleTheme = () => {
-    if (theme === "light") {
+  useEffect(() => {
+    if (storageTheme.theme == "light") {
+      setTheme("light");
+      root.classList.remove("dark");
+      root.classList.add("light");
+    } else if (storageTheme.theme == "dark") {
       setTheme("dark");
       root.classList.remove("light");
       root.classList.add("dark");
-    } else if (theme === "dark") {
+    }
+  }, [storageTheme.theme]);
+
+  const handleTheme = () => {
+    if (storageTheme.theme == "light") {
+      setTheme("dark");
+      localStorage.setItem(
+        "theme",
+        JSON.stringify({
+          theme: "dark",
+          key: "8480bee003d7f720208bb04dcc893ac9",
+        })
+      );
+      root.classList.remove("light");
+      root.classList.add("dark");
+    } else if (storageTheme.theme == "dark") {
       setTheme("light");
+      localStorage.setItem(
+        "theme",
+        JSON.stringify({
+          theme: "light",
+          key: "8480bee003d7f720208bb04dcc893ac9",
+        })
+      );
       root.classList.remove("dark");
       root.classList.add("light");
     }
@@ -65,7 +92,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex gap-2 items-center">
-            {theme === "dark" ? (
+            {theme == "dark" ? (
               <button onClick={handleTheme}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
