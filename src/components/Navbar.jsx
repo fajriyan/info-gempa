@@ -17,16 +17,31 @@ const Navbar = () => {
   let storageTheme = JSON.parse(localStorage.getItem("theme"));
 
   useEffect(() => {
-    if (storageTheme.theme == "light") {
+    if (storageTheme === null) {
       setTheme("light");
-      root.classList.remove("dark");
-      root.classList.add("light");
-    } else if (storageTheme.theme == "dark") {
-      setTheme("dark");
-      root.classList.remove("light");
-      root.classList.add("dark");
+      localStorage.setItem(
+        "theme",
+        JSON.stringify({
+          theme: "light",
+          key: "8480bee003d7f720208bb04dcc893ac9",
+        })
+      );
     }
-  }, [storageTheme.theme]);
+
+    try {
+      if (storageTheme.theme == "light") {
+        setTheme("light");
+        root.classList.remove("dark");
+        root.classList.add("light");
+      } else if (storageTheme.theme == "dark") {
+        setTheme("dark");
+        root.classList.remove("light");
+        root.classList.add("dark");
+      }
+    } catch (error) {
+      // console.log("Error on Set Theme");
+    }
+  }, [storageTheme?.theme]);
 
   const handleTheme = () => {
     if (storageTheme.theme == "light") {

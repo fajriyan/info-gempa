@@ -9,7 +9,6 @@ import ThemeContext from "./lib/ThemeContext";
 import { useState } from "react";
 
 function App() {
-  // const [theme, setTheme] = useState("light");
   const theme = useState("light");
   return (
     <ThemeContext.Provider value={theme}>
