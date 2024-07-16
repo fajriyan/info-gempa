@@ -157,6 +157,16 @@ const About = () => {
               </details>
             </div>
           </div>
+
+          <div className="mt-7">
+            <h2 className="font-semibold text-lg">Hubungi Kami</h2>
+            <div className="mt-2 flex gap-2">
+
+              <a className="px-1 py-0.5 hover:bg-slate-900 hover:text-white rounded-md border border-slate-800" href="https://github.com/fajriyan">Github</a>
+              <a className="px-1 py-0.5 hover:bg-slate-900 hover:text-white rounded-md border border-slate-800" href="https://www.linkedin.com/in/fajriyan/">LinkedIn</a>
+              <a className="px-1 py-0.5 hover:bg-slate-900 hover:text-white rounded-md border border-slate-800" href="https://www.instagram.com/fajriyan.nur/">Instagram</a>
+            </div>
+          </div>
         </div>
       </div>
     </motion.div>
