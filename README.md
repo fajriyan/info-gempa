@@ -78,6 +78,8 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 - [x] Create UI better
 - [X] Create Page Data Gempa Terkini
 - [x] Update Rest API with Key
+- [ ] Create Documentation for API public
+- [ ] Create API KEY generator
 - [ ] build PWA
 
 ## Latest Issue
