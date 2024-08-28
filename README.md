@@ -80,7 +80,7 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 - [x] Update Rest API with Key
 - [ ] Create Documentation for API public
 - [ ] Create API KEY generator
-- [ ] build PWA
+- [x] build PWA
 
 ## Latest Issue
 - [x] Rest API Error
