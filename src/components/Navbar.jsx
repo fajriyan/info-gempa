@@ -2,6 +2,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import Time from "./Time";
 import { useContext, useEffect, useState } from "react";
 import ThemeContext from "../lib/ThemeContext";
+import Weather from "./Weather";
 
 const Navbar = () => {
   const root = window.document.documentElement;
@@ -80,9 +81,7 @@ const Navbar = () => {
         } bg-white z-[97] `}
       >
         <div className="pt-[75px] px-3 flex flex-col gap-5">
-          <NavLink
-            to={'/'}
-          >
+          <NavLink to={'/'}>
            Beranda
           </NavLink>
 
@@ -99,6 +98,8 @@ const Navbar = () => {
               {m.title}
             </NavLink>
           ))}
+
+          <Weather/>
         </div>
       </div>
 
@@ -166,6 +167,8 @@ const Navbar = () => {
               )}
             </div>
 
+
+            
             {theme == "dark" ? (
               <button onClick={handleTheme}>
                 <svg
@@ -193,10 +196,8 @@ const Navbar = () => {
               </button>
             )}
 
-            <div
-              className="p-1 flex flex-col items-center w-[70px]"
-              id="time-is"
-            >
+          
+            <div className="p-1 flex flex-col items-center w-[70px] border-x px-10 ml-1" id="time-is">
               <p className="font-medium">
                 <Time showTime={true} />
               </p>
@@ -204,13 +205,16 @@ const Navbar = () => {
                 <Time showDate={true} />
               </p>
             </div>
-            <div className="flex grow ">
+            <div className="hidden md:block">
+            <Weather/>
+            </div>
+            {/* <div className="flex grow ">
               {online ? (
                 <span className="w-[10px] h-[10px] bg-green-600 rounded-full animate-pulse"></span>
               ) : (
                 <span className="w-[10px] h-[10px] bg-red-600 rounded-full"></span>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

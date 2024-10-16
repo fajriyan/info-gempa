@@ -74,6 +74,8 @@ const Homepage = () => {
     >
       <div className="selection:bg-violet-200 selection:text-black min-h-screen dark:bg-gradient-to-r from-gray-800 via-gray-900 to-black pb-10">
         <Navbar />
+
+        
         <div className="container mx-auto pt-5">
           <h1 className="hidden">Aplikasi Data Gempa Bumi BMKG | Gempa</h1>
           <div className="grid px-3 grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-3 ">
