@@ -85,6 +85,7 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 ## Latest Issue
 - [x] Rest API Error
 - [x] mobile view bad
+- [ ] weather error
 
 
 ### <a href="https://github.com/fajriyan/info-gempa/issues/new">📢Laporkan Masalah</a>
