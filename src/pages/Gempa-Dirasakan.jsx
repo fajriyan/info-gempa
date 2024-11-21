@@ -1,3 +1,4 @@
+import dayjs from "../lib/dayjsConfig";
 import Magnitudo from "../components/Magnitudo";
 import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
@@ -30,25 +31,25 @@ const GempaDirasakan = () => {
               <table className="min-w-full divide-y divide-gray-200 text-sm dark:bg-gray-400/15 dark:backdrop-blur-md">
                 <thead className="text-left sticky border-b text-gray-900 dark:text-neutral-100">
                   <tr>
-                    <th className="whitespace-nowrap px-4 py-2 font-medium">
+                    <th className="px-4 py-2 font-medium w-[40px] border-r">
                       No
                     </th>
-                    <th className="whitespace-nowrap px-4 py-2 font-medium">
+                    <th className="px-4 py-2 font-medium w-[230px] border-r">
                       Waktu Gempa
                     </th>
-                    <th className="whitespace-nowrap px-3 py-2 font-medium">
+                    <th className="px-3 py-2 font-medium w-[95px] border-r">
                       Magnitudo
                     </th>
-                    <th className="whitespace-nowrap px-4 py-2 font-medium">
+                    <th className="px-4 py-2 font-medium w-[150px] border-r">
                       Litang | Bujur
                     </th>
-                    <th className="whitespace-nowrap px-4 py-2 font-medium">
+                    <th className="px-4 py-2 font-medium w-[100px] border-r">
                       Kedalaman
                     </th>
-                    <th className="whitespace-nowrap px-4 py-2 font-medium">
+                    <th className="whitespace-nowrap px-4 py-2 font-medium border-r">
                       Wilayah
                     </th>
-                    <th className="whitespace-nowrap py-2 font-medium">
+                    <th className="whitespace-nowrap px-4 py-2 font-medium">
                       Koordinat
                     </th>
                   </tr>
@@ -66,23 +67,28 @@ const GempaDirasakan = () => {
                   ) : (
                     GD?.slice(0, 10).map((GDM, index) => (
                       <tr
-                        className="group"
+                        className="group h-[50px]"
                         key={GDM?.DateTime + GDM?.Bujur + GDM?.Lintang}
                       >
-                        <td className="whitespace-nowrap ps-4 py-2 group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200">
+                        <td className="py-2 group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200 border-r w-[40px] text-center">
                           {index + 1}
                         </td>
-                        <td className="whitespace-nowrap ps-4 py-2 group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200">
+                        <td className="whitespace-nowrap px-4 py-2 group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200 border-r">
+                          <p className="font-semibold">
                           <span>{GDM?.Tanggal}</span> - {GDM?.Jam}
+                          </p>
+                          <p className="text-xs">{dayjs(dayjs(GDM?.Tanggal, "DD MMM YYYY").format("YYYY-MM-DD")+"T"+ GDM?.Jam.replace("WIB", "").trim()).fromNow()}</p>
                         </td>
-                        <td className="whitespace-nowrap ps-4 py-2 font-medium flex group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200">
+                        <td className="p-2 group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200 border-r">
+                          <div className="flex justify-center gap-1 items-center">
                           {GDM?.Magnitude}
                           <Magnitudo mgFill={GDM?.Magnitude} />
+                          </div>
                         </td>
-                        <td className="whitespace-nowrap ps-4 py-2 group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200">
+                        <td className="whitespace-nowrap px-4 py-2 group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200 border-r">
                           {GDM?.Lintang} | {GDM?.Bujur}
                         </td>
-                        <td className="whitespace-nowrap ps-4 py-2 flex group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200">
+                        <td className="whitespace-nowrap px-4 py-2 flex items-center justify-center h-[50px] group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200 border-r">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="13"
@@ -95,10 +101,10 @@ const GempaDirasakan = () => {
                           </svg>
                           {GDM?.Kedalaman}
                         </td>
-                        <td className="whitespace-nowrap ps-4 py-2 group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200 capitalize">
+                        <td className="whitespace-nowrap px-4 py-2 group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200 capitalize border-r">
                           {textProcessing(GDM?.Wilayah)}
                         </td>
-                        <td className="whitespace-nowrap px-5 md:px-1 py-2 flex group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200 hover:underline  relative">
+                        <td className="whitespace-nowrap px-4 py-2  group-hover:bg-slate-50 dark:group-hover:text-slate-900 dark:group-hover:bg-slate-200 hover:underline relative">
                           <a
                             href={
                               "https://www.google.com/maps/place/" +

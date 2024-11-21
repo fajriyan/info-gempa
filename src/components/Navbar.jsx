@@ -18,6 +18,7 @@ const Navbar = () => {
   const [theme, setTheme] = useContext(ThemeContext);
   let storageTheme = JSON.parse(localStorage.getItem("theme"));
 
+  
   useEffect(() => {
     if (storageTheme === null) {
       setTheme("light");

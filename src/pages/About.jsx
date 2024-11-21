@@ -1,7 +1,18 @@
+import dayjs from "dayjs";
+import 'dayjs/locale/id';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const About = () => {
+  dayjs.extend(relativeTime);
+  dayjs.locale('id');
+
+  const dates = [
+    "2024-11-18T10:00:00Z", // Tanggal dalam format ISO
+    "2024-11-15T12:30:00Z",
+    "2024-11-01T08:00:00Z",
+  ];
   return (
     <motion.div
       initial={{ x: 70 }}
@@ -9,6 +20,17 @@ const About = () => {
       transition={{ delay: 0 }}
       className="hidden-bars-y"
     >
+
+    <div>
+      <h1>Diff For Humans</h1>
+      <ul>
+        {dates.map((date, index) => (
+          <li key={index}>
+            {dayjs(date).fromNow()} 
+          </li>
+        ))}
+      </ul>
+    </div>
       <div className="dark:bg-gradient-to-r min-h-screen from-gray-800 via-gray-900 to-black">
         <div className="">
           <img
