@@ -6,6 +6,7 @@ import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 import Navbar from "../components/Navbar";
 import textProcessing from "../lib/textProcessing";
+import dayjs from "../lib/dayjsConfig";
 
 const Homepage = () => {
   const { data: GT, isLoading: loadGT } = useGT();
@@ -74,11 +75,9 @@ const Homepage = () => {
     >
       <div className="selection:bg-violet-200 selection:text-black min-h-screen dark:bg-gradient-to-r from-gray-800 via-gray-900 to-black pb-10">
         <Navbar />
-
-        
         <div className="container mx-auto pt-5">
           <h1 className="hidden">Aplikasi Data Gempa Bumi BMKG | Gempa</h1>
-          <div className="grid px-3 grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-3 ">
+          <div className="grid px-3 grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-3 ">
             {/* Start - Image Section  */}
             <div className="">
               <div className="md:sticky md:top-[70px] p-1 rounded-lg border overflow-hidden flex justify-center bg-white">
@@ -140,7 +139,7 @@ const Homepage = () => {
             {/* End - Image Section  */}
 
             {/* Start - Information Section */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-3">
               <div
                 className="rounded-lg border p-3 flex flex-wrap items-center gap-[6px] dark:text-neutral-100 dark:bg-gray-400/15 dark:backdrop-blur-md"
                 id="highligt"
@@ -254,6 +253,7 @@ const Homepage = () => {
                 </div>
 
                 <ul className="text-sm list-disc pl-5">
+                <div className="text-sm border border-slate-700 mb-4 rounded-md px-3 w-max">Terjadi Gempa : {dayjs(dayjs(GT?.Tanggal, "DD MMM YYYY").format("YYYY-MM-DD")+"T"+ GT?.jam?.replace("WIB", "").trim()).fromNow()}</div>
                   <li>
                     <span className="flex gap-1 capitalize">
                       Dirasakan : <Skeleton width={"w-40"} />

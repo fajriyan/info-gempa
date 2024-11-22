@@ -1,13 +1,14 @@
-import dayjs from "../lib/dayjsConfig";
 import Magnitudo from "../components/Magnitudo";
 import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
 import { useGD } from "../features/fetch";
 import textProcessing from "../lib/textProcessing";
+import dayjs from "../lib/dayjsConfig";
 
 const GempaDirasakan = () => {
   const { data: GD, isLoading: loadGD } = useGD();
 
+  
   return (
     <>
       <motion.div
@@ -16,7 +17,7 @@ const GempaDirasakan = () => {
         transition={{ delay: 0 }}
         className="hidden-bars-y"
       >
-        <div className="dark:bg-gradient-to-r min-h-screen from-gray-800 via-gray-900 to-black">
+        <div className="dark:bg-gradient-to-r min-h-screen from-gray-800 via-gray-900 to-black mb-16">
           <Navbar />
           <div className="container mx-auto py-2 px-3 md:px-0">
             <h1 className="font-bold text-xl text-slate-700 dark:text-neutral-100">
@@ -65,7 +66,7 @@ const GempaDirasakan = () => {
                       <td className="">{/* <Skeleton /> */}</td>
                     </tr>
                   ) : (
-                    GD?.slice(0, 10).map((GDM, index) => (
+                    GD?.map((GDM, index) => (
                       <tr
                         className="group h-[50px]"
                         key={GDM?.DateTime + GDM?.Bujur + GDM?.Lintang}
